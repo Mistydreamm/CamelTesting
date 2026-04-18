@@ -1,8 +1,6 @@
 package hr.algebra.camelle4.config;
 
-import org.springframework.stereotype.Component;
 
-@Component
 public class AppConfig {
     public static final String BASE_URL = "http://localhost:8082/api/notes";
     public static final String OUTPUT_DIR = "output/responses";

@@ -1,0 +1,14 @@
+{
+  "capturedAt" : "2026-04-19T11:43:39.801015837",
+  "routeId" : "get-one-notes",
+  "httpMethod" : "GET",
+  "endpoint" : "http://localhost:8082/api/notes/10",
+  "httpStatus" : 200,
+  "response" : {
+    "id" : 10,
+    "title" : "this is a better note 2",
+    "content" : "better note",
+    "createdAt" : "2026-03-21T17:15:11.000+0000",
+    "updatedAt" : "2026-03-22T11:12:09.000+0000"
+  }
+}

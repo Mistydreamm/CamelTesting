@@ -28,7 +28,12 @@ public class CreateRoute extends RouteBuilder {
                         .formatted(AppConfig.OUTPUT_DIR,
                                 AppConfig.ENTITY_NAME,
                                 AppConfig.TIMESTAMP_FORMAT));
-        from("direct:create-" + AppConfig.ENTITY_NAME)
+        from("timer:createTimer?period=30000")
+                .loadBalance().roundRobin()
+                .to("direct:post1")
+                .to("direct:post2")
+                .to("direct:post3")
+                .end()
                 .routeId("create-" + AppConfig.ENTITY_NAME)
                 .log(">>> Triggered: create-" + AppConfig.ENTITY_NAME)
                 .setProperty(ResponseProcessor.OP_METHOD, constant("POST"))
@@ -43,5 +48,10 @@ public class CreateRoute extends RouteBuilder {
                                 AppConfig.ENTITY_NAME,
                                 AppConfig.TIMESTAMP_FORMAT))
                 .log("<<< Completed: create-" + AppConfig.ENTITY_NAME);
+
+        from("direct:post1").setBody(constant("{\"title\" : \"note1\",\n\"content\" : \"note1!\"}"));
+        from("direct:post2").setBody(constant("{\"title\" : \"note2\",\n\"content\" : \"note2!\"}"));
+        from("direct:post3").setBody(constant("{\"title\" : \"note3\",\n\"content\" : \"note3!\"}"));
     }
+
 }

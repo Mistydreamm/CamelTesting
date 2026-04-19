@@ -11,13 +11,16 @@ import static org.apache.camel.builder.Builder.simple;
 @Component
 public class GetOneRoute extends RouteBuilder {
     private final ResponseProcessor responseProcessor;
+    private final Long[] idTab;
 
     private GetOneRoute(ResponseProcessor responseProcessor) {
         this.responseProcessor = responseProcessor;
+        this.idTab = new Long[]{5L, 10L, 16L, 17L, 18L};
     }
 
     @Override
     public void configure() {
+
         onException(Exception.class)
                 .handled(true)
                 .log("ERROR in get-one-" + AppConfig.ENTITY_NAME + ": ${exception.message} ")
@@ -28,8 +31,17 @@ public class GetOneRoute extends RouteBuilder {
                         .formatted(AppConfig.OUTPUT_DIR,
                                 AppConfig.ENTITY_NAME,
                                 AppConfig.TIMESTAMP_FORMAT));
-        from("direct:get-one-" + AppConfig.ENTITY_NAME)
+        from("timer:getOneTimer?period=15000")
                 .routeId("get-one-" + AppConfig.ENTITY_NAME)
+
+                .loadBalance().roundRobin()
+                .to("direct:set-id-5")
+                .to("direct:set-id-10")
+                .to("direct:set-id-16")
+                .to("direct:set-id-17")
+                .to("direct:set-id-18")
+                .end()
+
                 .log(">>> Triggered: get-one-" + AppConfig.ENTITY_NAME + " (id = ${header.targetId})")
                 .setProperty(ResponseProcessor.OP_METHOD, constant("GET"))
                 .setProperty(ResponseProcessor.OP_ENDPOINT,
@@ -43,5 +55,11 @@ public class GetOneRoute extends RouteBuilder {
                                 AppConfig.ENTITY_NAME,
                                 AppConfig.TIMESTAMP_FORMAT))
                 .log("<<< Completed: get-one-" + AppConfig.ENTITY_NAME + " (id = ${header.targetId})");
+
+        from("direct:set-id-5").setHeader("targetId", constant(5));
+        from("direct:set-id-10").setHeader("targetId", constant(10));
+        from("direct:set-id-16").setHeader("targetId", constant(16));
+        from("direct:set-id-17").setHeader("targetId", constant(17));
+        from("direct:set-id-18").setHeader("targetId", constant(18));
     }
 }

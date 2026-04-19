@@ -1,0 +1,68 @@
+{
+  "capturedAt" : "2026-04-19T11:34:33.875398047",
+  "routeId" : "get-one-notes",
+  "httpMethod" : "GET",
+  "endpoint" : "http://localhost:8082/api/notes/",
+  "httpStatus" : 200,
+  "response" : [ {
+    "id" : 5,
+    "title" : "yes",
+    "content" : "it worked 2 !",
+    "createdAt" : "2026-03-16T13:39:16.000+0000",
+    "updatedAt" : "2026-04-18T21:47:08.000+0000"
+  }, {
+    "id" : 10,
+    "title" : "this is a better note 2",
+    "content" : "better note",
+    "createdAt" : "2026-03-21T17:15:11.000+0000",
+    "updatedAt" : "2026-03-22T11:12:09.000+0000"
+  }, {
+    "id" : 16,
+    "title" : "note ",
+    "content" : "note with a good description",
+    "createdAt" : "2026-03-22T11:13:02.000+0000",
+    "updatedAt" : "2026-03-22T11:13:02.000+0000"
+  }, {
+    "id" : 17,
+    "title" : "new note",
+    "content" : "21/03/2026",
+    "createdAt" : "2026-03-22T11:28:42.000+0000",
+    "updatedAt" : "2026-03-22T11:28:42.000+0000"
+  }, {
+    "id" : 18,
+    "title" : "new one",
+    "content" : "one",
+    "createdAt" : "2026-03-22T11:31:15.000+0000",
+    "updatedAt" : "2026-03-22T11:31:15.000+0000"
+  }, {
+    "id" : 19,
+    "title" : "yes",
+    "content" : "it worked !",
+    "createdAt" : "2026-04-18T17:03:23.000+0000",
+    "updatedAt" : "2026-04-18T17:03:23.000+0000"
+  }, {
+    "id" : 20,
+    "title" : "new note",
+    "content" : "21/03/2026",
+    "createdAt" : "2026-04-18T17:08:08.000+0000",
+    "updatedAt" : "2026-04-18T17:08:08.000+0000"
+  }, {
+    "id" : 21,
+    "title" : "yes",
+    "content" : "it worked !",
+    "createdAt" : "2026-04-18T17:08:23.000+0000",
+    "updatedAt" : "2026-04-18T17:08:23.000+0000"
+  }, {
+    "id" : 22,
+    "title" : "yes",
+    "content" : "it worked !",
+    "createdAt" : "2026-04-18T21:30:32.000+0000",
+    "updatedAt" : "2026-04-18T21:30:32.000+0000"
+  }, {
+    "id" : 23,
+    "title" : "note1",
+    "content" : "note1!",
+    "createdAt" : "2026-04-19T09:34:19.000+0000",
+    "updatedAt" : "2026-04-19T09:34:19.000+0000"
+  } ]
+}

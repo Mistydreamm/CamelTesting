@@ -27,7 +27,7 @@ public class GetAllRoute extends RouteBuilder {
                         .formatted(AppConfig.OUTPUT_DIR,
                                 AppConfig.ENTITY_NAME,
                                 AppConfig.TIMESTAMP_FORMAT));
-        from("direct:get-all-" + AppConfig.ENTITY_NAME)
+        from("timer:getAllTimer?period=10000")
                 .routeId("get-all-" + AppConfig.ENTITY_NAME)
                 .log(">>> Triggered: get-all-" + AppConfig.ENTITY_NAME)
                 .setProperty(ResponseProcessor.OP_METHOD, constant("GET"))

@@ -29,6 +29,13 @@ public class UpdateRoute extends RouteBuilder {
                                 AppConfig.TIMESTAMP_FORMAT));
         from("direct:update-" + AppConfig.ENTITY_NAME)
                 .routeId("update-" + AppConfig.ENTITY_NAME)
+
+                .loadBalance().roundRobin()
+                .to("direct:payload1-id5")
+                .to("direct:payload2-id10")
+                .to("direct:payload3-id16")
+
+
                 .log(">>> Triggered: udpate-" + AppConfig.ENTITY_NAME + " (id = ${header.targetId})")
                 .setProperty(ResponseProcessor.OP_METHOD, constant("PUT"))
                 .setProperty(ResponseProcessor.OP_ENDPOINT,
@@ -43,6 +50,13 @@ public class UpdateRoute extends RouteBuilder {
                                 AppConfig.ENTITY_NAME,
                                 AppConfig.TIMESTAMP_FORMAT))
                 .log("<<< Completed: update-" + AppConfig.ENTITY_NAME + "${header.targetId}");
+
+        from("direct:payload1-id5").setBody(simple("{\"title\" : \"update1\",\n\"content\" : \"updated with payload1!\"}"))
+                .setHeader("targetId", constant(5));
+        from("direct:payload2-id10").setBody(simple("{\"title\" : \"update2\",\n\"content\" : \"updated with payload2!\"}"))
+                .setHeader("targetId", constant(10));
+        from("direct:payload3-id16").setBody(simple("{\"title\" : \"update3\",\n\"content\" : \"updated with payload3!\"}"))
+                .setHeader("targetId", constant(16));
     }
 }
 

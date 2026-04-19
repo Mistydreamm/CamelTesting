@@ -1,0 +1,14 @@
+{
+  "capturedAt" : "2026-04-19T11:34:18.982924112",
+  "routeId" : "create-notes",
+  "httpMethod" : "POST",
+  "endpoint" : "http://localhost:8082/api/notes",
+  "httpStatus" : 200,
+  "response" : {
+    "id" : 23,
+    "title" : "note1",
+    "content" : "note1!",
+    "createdAt" : "2026-04-19T09:34:18.948+0000",
+    "updatedAt" : "2026-04-19T09:34:18.948+0000"
+  }
+}

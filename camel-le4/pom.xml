@@ -45,6 +45,7 @@
         <artifactId>camel-http-starter</artifactId>
         <scope>compile</scope>
     </dependency>
+
     <!-- Jackson for JSON marshal/unmarshal -->
     <dependency>
         <groupId>org.apache.camel.springboot</groupId>
@@ -60,5 +61,51 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
+
+    <!-- Brokers -->
+    <dependency>
+        <groupId>org.apache.camel.springboot</groupId>
+        <artifactId>camel-spring-rabbitmq-starter</artifactId>
+    </dependency>
+    <dependency>
+    <groupId>org.apache.camel.springboot</groupId>
+    <artifactId>camel-kafka-starter</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-amqp</artifactId>
+    </dependency>
+    <!-- Converters: Avro and Protobuf (Jackson is already in LE4) -->
+    <dependency>
+        <groupId>org.apache.camel.springboot</groupId>
+        <artifactId>camel-avro-starter</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.camel.springboot</groupId>
+        <artifactId>camel-protobuf-starter</artifactId>
+    </dependency>
+    <!-- Idempotent repository (in-memory) -->
+    <dependency>
+        <groupId>org.apache.camel.springboot</groupId>
+        <artifactId>camel-caffeine-starter</artifactId>
+    </dependency>
+
+    <!-- Observability -->
+    <dependency>
+        <groupId>org.apache.camel.springboot</groupId>
+        <artifactId>camel-micrometer-starter</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>io.micrometer</groupId>
+        <artifactId>micrometer-registry-prometheus</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+
 </dependencies>
+
+
 </project>

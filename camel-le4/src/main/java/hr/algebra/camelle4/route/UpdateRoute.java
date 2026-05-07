@@ -27,7 +27,7 @@ public class UpdateRoute extends RouteBuilder {
                         .formatted(AppConfig.OUTPUT_DIR,
                                 AppConfig.ENTITY_NAME,
                                 AppConfig.TIMESTAMP_FORMAT));
-        from("direct:update-" + AppConfig.ENTITY_NAME)
+        from("timer:createTimer?period=60000")
                 .routeId("update-" + AppConfig.ENTITY_NAME)
 
                 .loadBalance().roundRobin()
